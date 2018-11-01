@@ -3,6 +3,7 @@
 namespace Pieroenrico\Crudisimo;
 
 use Illuminate\Support\ServiceProvider;
+use Pieroenrico\Crudisimo\Commands\CRUDGeneratorCommand;
 
 class CrudisimoServiceProvider extends ServiceProvider
 {
@@ -13,7 +14,11 @@ class CrudisimoServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                CRUDGeneratorCommand::class,
+            ]);
+        }
     }
 
     /**

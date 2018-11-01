@@ -1,0 +1,12 @@
+<?php
+
+namespace {{ModelPath}};
+
+use Illuminate\Database\Eloquent\Model;
+
+class {{NameOfModel}} extends Model
+{
+    protected $table = '{{NameOfTable}}';
+
+    protected $guarded = ['id'];
+}

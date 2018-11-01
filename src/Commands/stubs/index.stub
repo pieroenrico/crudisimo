@@ -1,0 +1,52 @@
+@extends('layouts.app')
+
+@section('content')
+
+    <div class="row justify-content-center">
+        <div class="col-10">
+            <div class="card">
+
+                <header class="card-header">
+                    <h4 class="card-title">{{ $page->title }}</h4>
+                    <div class="card-header-actions">
+                        <a href="{{ route($routes->create) }}" class="btn btn-sm btn-primary">@lang('backend.create')</a>
+                    </div>
+                </header>
+
+                <div class="card-body">
+
+
+                    @include('backend.partials.session')
+
+                    <table class="table table-striped table-responsive-lg">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            {{--<th>Name</th>--}}
+                            <th class="text-right"><i class="ti-settings"></i></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @forelse($items as $item)
+                        <tr>
+                           <td class="td-sm">{{ $item->id }}</td>
+                            {{--<td><a href="{{ route($routes->edit, ['id' => $item->id]) }}">{{ $item->name }}</a></td>--}}
+                            <td class="text-right">
+                                <form action="{{ route($routes->destroy, [$item->id]) }}" method="post" id="delete-{{ $item->id }}">
+                                    {!! csrf_field() !!}
+                                    <input type="hidden" name="_method" value="delete">
+                                    <button class="btn btn-danger btn-pure btn-square btn-deleter"><i class="ti-trash"></i></button>
+                                </form>
+                            </td>
+                        </tr>
+                            @empty
+                                <tr><td class="no-results" colspan="100">@lang('backend.noresults')</td></tr>
+                        @endforelse
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+@endsection

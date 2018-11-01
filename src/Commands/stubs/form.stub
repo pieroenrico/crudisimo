@@ -1,0 +1,10 @@
+{{--
+<div class="form-group">
+    {{ Form::label('name', 'Name')  }}
+    {{ Form::text('name', null, ['class' => 'form-control ', 'placeholder' => 'Name', 'required' => 'required']) }}
+</div>
+
+<div class="form-group">
+    {{ Form::label('related_id', 'Name')  }}
+    {{ Form::select('related_id', $model, null, ['class' => 'form-control ', 'placeholder' => 'Name', 'required' => 'required']) }}
+</div>--}}

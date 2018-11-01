@@ -1,0 +1,47 @@
+@extends('layouts.app')
+
+@section('content')
+
+    <div class="row justify-content-center">
+        <div class="col-10">
+            <div class="card">
+
+                <header class="card-header">
+                    <h4 class="card-title">@lang('backend.add') {{ $page->title }}</h4>
+                    <div class="card-header-actions">
+                        <a href="{{ route($routes->index) }}" class="btn btn-sm btn-primary"><i class="ti-arrow-left"></i> @lang('backend.back')</a>
+                    </div>
+                </header>
+
+                <div class="card-body form-type-fill">
+
+                    @include($views->flash)
+
+                    {!! Form::model($model,
+                                    [
+                                    'method' => 'POST',
+                                    'enctype' => 'multipart/form-data',
+                                    'files' => 'true',
+                                    'class' => 'form-type-fill',
+                                    'data-provide' => 'validation',
+                                    'route' => [
+                                                $routes->store,
+                                                ]
+                                     ]) !!}
+
+
+                    @include($views->form)
+
+                    <div class="form-group text-center mt-60">
+                        <button type="submit" class="btn btn-primary btn-w-xl">@lang('backend.save')</button>
+                    </div>
+
+                    {!! Form::close() !!}
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+@endsection
