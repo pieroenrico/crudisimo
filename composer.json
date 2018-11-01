@@ -1,0 +1,26 @@
+{
+    "name": "pieroenrico/crudisimo",
+    "description": "CRUD Generator for Laravel 5.*",
+    "type": "laravel-generator",
+    "authors": [
+        {
+            "name": "pieroenrico",
+            "email": "pierob@hellobaytree.com"
+        }
+    ],
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Pieroenrico\\Crudisimo\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Pieroenrico\\Crudisimo\\CrudisimoServiceProvider"
+            ]
+        }
+    }
+}
